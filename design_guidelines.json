@@ -1,0 +1,167 @@
+{
+  "theme": "dark",
+  "archetype": "LUXURY & THE PERFORMANCE PRO (Barber Club & Tactical Precision)",
+  "language": "pt-BR",
+  "app_type": "saas_app",
+  "colors": {
+    "surfaces": [
+      {
+        "name": "page",
+        "kind": "solid",
+        "bg": "#0D0D11",
+        "on_bg": "#F5F5F7",
+        "on_bg_muted": "#A1A1AA",
+        "roles": {
+          "brand_gold": "#D4AF37",
+          "brand_gold_hover": "#E5C158",
+          "brand_gold_dim": "#997A1E",
+          "border_subtle": "#27272A",
+          "border_gold_subtle": "#3F3518",
+          "error": "#EF4444",
+          "success": "#10B981",
+          "warning": "#F59E0B"
+        }
+      },
+      {
+        "name": "panel",
+        "kind": "solid",
+        "bg": "#18181B",
+        "on_bg": "#FAFAFA",
+        "on_bg_muted": "#A1A1AA",
+        "roles": {
+          "accent_gold": "#D4AF37",
+          "border": "#27272A",
+          "hover_bg": "#27272A"
+        }
+      },
+      {
+        "name": "card_elevated",
+        "kind": "solid",
+        "bg": "#1F1F23",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#A1A1AA",
+        "roles": {
+          "gold_highlight": "#F3E5AB",
+          "border": "#333338"
+        }
+      },
+      {
+        "name": "glass_header",
+        "kind": "glass",
+        "contrast_against": "#0D0D11",
+        "guarantee": "backdrop-blur-xl bg-[#0D0D11]/80 border-b border-[#27272A]/80",
+        "on_bg": "#F5F5F7",
+        "on_bg_muted": "#A1A1AA"
+      },
+      {
+        "name": "badge_gold",
+        "kind": "solid",
+        "bg": "#2A2310",
+        "on_bg": "#F5D061",
+        "on_bg_muted": "#D4AF37"
+      },
+      {
+        "name": "badge_success",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#6EE7B7",
+        "on_bg_muted": "#34D399"
+      },
+      {
+        "name": "badge_pix",
+        "kind": "solid",
+        "bg": "#064E3B",
+        "on_bg": "#A7F3D0",
+        "on_bg_muted": "#6EE7B7"
+      },
+      {
+        "name": "floating_chatbot",
+        "kind": "solid",
+        "bg": "#18181B",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#A1A1AA"
+      }
+    ],
+    "accent": "#D4AF37",
+    "on_accent": "#0D0D11"
+  },
+  "typography": {
+    "font_family_heading": "Outfit, sans-serif",
+    "font_family_body": "DM Sans, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "scale_px": {
+      "display": 56,
+      "h1": 40,
+      "h2": 30,
+      "h3": 22,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "headings": "font-heading font-bold tracking-tight text-white",
+      "labels_overline": "text-xs uppercase tracking-[0.2em] font-semibold text-[#D4AF37]",
+      "body": "font-sans text-base leading-relaxed text-[#A1A1AA]",
+      "mono_data": "font-mono text-sm tracking-normal"
+    }
+  },
+  "entry_surfaces": {
+    "/": "split hero — brand gold badge + SaaS positioning left, interactive tenant selector and preview booking mockup right",
+    "/b/:slug": "barbershop public storefront — branded banner header, quick stats, services catalog, active barbers, floating whatsapp & AI assistant, primary gold CTA 'Agendar Horário'",
+    "/b/:slug/agendar": "mobile-first 4-step wizard container — step indicator progress bar, selectable items, responsive sticky bottom navigation",
+    "/cliente": "client hub — subscription card with remaining cuts badge, 10-stamp loyalty card grid, appointments timeline, referral invite box",
+    "/admin": "barbershop operations panel — daily schedule grid by barber, quick encaixe button, comanda checkout drawer, finance metric cards",
+    "/superadmin": "tenant management console — SaaS global MRR, active/suspended barbershops table with quick toggle, onboard new tenant modal"
+  },
+  "visual_enhancers": {
+    "texture": "subtle dark noise grain and 1px metallic gold border accents (#D4AF37/25)",
+    "active_gold_glow": "box-shadow: 0 0 20px rgba(212, 175, 55, 0.25)",
+    "glass_blur": "backdrop-blur-xl bg-[#18181B]/80 border border-[#27272A]",
+    "gold_gradient_text": "bg-gradient-to-r from-[#F5D061] via-[#D4AF37] to-[#AA7C11] bg-clip-text text-transparent"
+  },
+  "grids_and_layouts": {
+    "mobile_pwa": "Mobile-first full screen container with max-w-md mx-auto on mobile, expanding to max-w-7xl on desktop viewports. Bottom safe-area padding for mobile navigation.",
+    "booking_wizard_steps": [
+      "Passo 1: Seleção de Serviços (Cards interativos com duração, preço e multi-seleção)",
+      "Passo 2: Barbeiro / Profissional (Avatar com iniciais/foto, especialidades em badges, nota de 1 a 5 estrelas)",
+      "Passo 3: Data e Horário (Calendário compacto + grade de horários disponíveis em pills/chips)",
+      "Passo 4: Pagamento & Confirmação (Opções: Pix com QR Code + Copia e Cola, Cartão Crédito/Débito, Saldo do Plano de Assinatura '1 corte restante')"
+    ],
+    "client_area": {
+      "loyalty_card": "Grid de 10 selos estilizados com ícone de tesoura/navalha dourada para carimbos preenchidos e pontilhado para pendentes",
+      "subscription_box": "Card estilo cartão black/gold com medidor circular ou barra de progresso 'Restam 3 de 4 cortes'",
+      "appointments": "Lista de agendamentos futuros e passados com botões 'Cancelar', 'Reagendar' e 'Avaliar (1-5 estrelas)'",
+      "referral_box": "Código exclusivo de indicação com botão copiar link e contador de créditos ganhos"
+    },
+    "admin_dashboard": {
+      "agenda_diaria": "Timeline/colunas por profissional com slots de 30m, indicador de status (Confirmado, Em Andamento, Concluído, Bloqueio, Encaixe)",
+      "comanda_checkout": "Drawer lateral para fechamento de comanda: adicionar produtos (pomada, óleo de barba), serviços extras, gorjeta, aplicar desconto/assinatura e registrar pagamento",
+      "quick_actions": "Botão rápido 'Novo Encaixe', 'Bloquear Horário', 'Enviar Lembrete WhatsApp'",
+      "financeiro": "Cards de faturamento bruto, líquido, comissões por barbeiro, ticket médio e botão 'Exportar Relatório (Excel/PDF)'"
+    }
+  },
+  "motion": {
+    "page_transitions": "Fade in with y-offset of 6px over 0.2s ease-out",
+    "step_transitions": "Slide horizontal transition for booking wizard steps",
+    "badge_stamp": "Scale-up bounce effect (scale: 0.8 to 1.15 to 1) when loyalty stamp is marked",
+    "drawer_spring": "Spring transition for mobile sheets (comanda, chatbot)"
+  },
+  "accessibility": {
+    "minimum_contrast": "All text tokens exceed WCAG AA 4.5:1 against their designated surfaces. Gold #D4AF37 on dark #0D0D11 yields 8.2:1 contrast ratio.",
+    "touch_targets": "Minimum 48px touch targets for all primary buttons, tab triggers, and appointment slot chips.",
+    "aria_labels": "Clear aria-labels for WhatsApp floating trigger, chatbot toggle, stamp counters, and star rating buttons."
+  },
+  "instructions_to_main_agent": [
+    "Theme: Modern luxurious dark mode (#0D0D11 background, #18181B panels, rich gold #D4AF37 accents, crisp white text). Always replace <html class='dark'> in frontend/index.html if needed.",
+    "Images: DO NOT generate AI images. Use Lucide icons (Scissors, Calendar, Clock, DollarSign, Award, Star, MessageSquare, User, ShieldCheck, Share2, QrCode, Phone, Sparkles) and stylish SVG avatars / monogram initials for barbers and users.",
+    "Language: Complete interface in Portuguese (Brazil) with natural barber terms (Corte Degradê, Barba Terapia, Sobrancelha, Pomada Modeladora, Encaixe, Comanda, Selos Fidelidade, Assinatura Clube).",
+    "PWA/Mobile Experience: Implement bottom action bars for mobile booking wizard (ex: 'Continuar (R$ 65,00) ->'), floating WhatsApp button, and quick tab switching.",
+    "Interactive Mock Flows: Ensure all tabs and actions work seamlessly in the single-page application (switch tenant, schedule appointment with complete 4 steps, review booking, cancel/reschedule, loyalty stamp simulation, comanda checkout, Pix QR code copy, export mock PDF/Excel).",
+    "Include data-testid on every interactive element (buttons, step triggers, inputs, cards, action menus)."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Never use generic centered layouts or low-contrast gray text on dark backgrounds.",
+    "Maintain strict TypeScript types across all UI components and hooks.",
+    "Use Sonner for toast notifications ('Agendamento confirmado!', 'Código Pix copiado!', 'Comanda fechada com sucesso!').",
+    "Ensure all dialogs, sheets, and popovers have solid dark backgrounds (#18181B) with crisp borders (#27272A) to prevent visual clipping."
+  ]
+}

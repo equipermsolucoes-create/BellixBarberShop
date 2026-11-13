@@ -18,8 +18,20 @@ logger = logging.getLogger(__name__)
 
 # One entry per collection: every field a route filters, sorts, or dedupes on. Applied by ensure_indexes() at startup.
 INDEXES: dict[str, list[IndexModel]] = {
-    "status_checks": [IndexModel([("timestamp", DESCENDING)], name="timestamp_desc")],
+    "users": [IndexModel([("id", ASCENDING)], name="id", unique=True), IndexModel([("email", ASCENDING)], name="email", unique=True),
+              IndexModel([("shop_id", ASCENDING), ("role", ASCENDING)], name="shop_role")],
+    "shops": [IndexModel([("id", ASCENDING)], name="id", unique=True), IndexModel([("slug", ASCENDING)], name="slug", unique=True)],
+    "appointments": [IndexModel([("id", ASCENDING)], name="id", unique=True),
+                     IndexModel([("shop_id", ASCENDING), ("date", ASCENDING), ("barber_id", ASCENDING)], name="shop_date_barber"),
+                     IndexModel([("shop_id", ASCENDING), ("client_id", ASCENDING)], name="shop_client")],
+    "members": [IndexModel([("shop_id", ASCENDING), ("client_id", ASCENDING)], name="shop_client", unique=True),
+                IndexModel([("shop_id", ASCENDING), ("referral_code", ASCENDING)], name="shop_code")],
+    "subscriptions": [IndexModel([("shop_id", ASCENDING), ("client_id", ASCENDING)], name="shop_client")],
+    "files": [IndexModel([("id", ASCENDING)], name="id", unique=True)],
+    **{c: [IndexModel([("shop_id", ASCENDING)], name="shop")] for c in
+       ("services", "products", "barbers", "blocks", "plans", "gallery", "reviews", "coupons", "sub_payments")},
 }
+_ = DESCENDING
 
 
 async def ensure_indexes() -> None:
