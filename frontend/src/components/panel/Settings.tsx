@@ -33,12 +33,19 @@ export default function Settings() {
     <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
       <section className="space-y-4 rounded-2xl border border-line bg-panel p-5">
         <p className="overline flex items-center gap-1.5"><Store className="size-3.5" /> Dados da loja</p>
-        <div className="flex items-center gap-4">
-          <Avatar name={form.name} url={form.logo_url} className="size-16 rounded-2xl" />
-          <ImageUpload testId="logo-upload-button" label="Alterar logotipo" onUploaded={(url) => set("logo_url", url)} />
+        <div className="flex flex-wrap items-center gap-4 rounded-xl border border-gold/30 bg-[#2A2310]/40 p-4" data-testid="identity-block">
+          <Avatar name={form.name || "?"} url={form.logo_url} className="size-20 rounded-2xl text-2xl" />
+          <div className="min-w-0 flex-1">
+            <p className="font-heading text-lg font-semibold text-white" data-testid="identity-preview-name">{form.name || "Nome da barbearia"}</p>
+            <p className="text-xs text-muted-foreground">Logo e nome aparecem na sua página pública, no painel e no app instalado.</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <ImageUpload testId="logo-upload-button" label={form.logo_url ? "Trocar logo" : "Enviar logo"} onUploaded={(url) => { set("logo_url", url); toast.success("Logo carregada — clique em Salvar"); }} />
+              {form.logo_url && <Button variant="ghost" size="sm" data-testid="logo-remove-button" onClick={() => set("logo_url", null)}>Remover</Button>}
+            </div>
+          </div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="space-y-1.5"><Label>Nome</Label><Input data-testid="settings-name-input" value={form.name} onChange={(e) => set("name", e.target.value)} /></div>
+          <div className="space-y-1.5"><Label>Nome da barbearia</Label><Input data-testid="settings-name-input" value={form.name} onChange={(e) => set("name", e.target.value)} /></div>
           <div className="space-y-1.5"><Label>Link (slug)</Label>
             <div className="flex items-center rounded-lg border border-input pl-2 text-sm text-muted-foreground">/b/<Input data-testid="settings-slug-input" className="border-0" value={form.slug} onChange={(e) => set("slug", e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, "-"))} /></div>
           </div>

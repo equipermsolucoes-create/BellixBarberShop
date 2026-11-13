@@ -12,7 +12,7 @@ export function BrandMark({ to = "/" }: { to?: string }) {
         <Scissors className="size-4.5" strokeWidth={2.4} />
       </span>
       <span className="font-heading text-lg font-bold tracking-tight">
-        Navalha<span className="text-gold">Club</span>
+        Bellix<span className="text-gold">BarberShop</span>
       </span>
     </Link>
   );

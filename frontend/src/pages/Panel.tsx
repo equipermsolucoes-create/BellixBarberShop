@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { CalendarDays, Crown, ExternalLink, Images, LogOut, Package, Scissors, Settings as SettingsIcon, TrendingUp, Users } from "lucide-react";
-import { BrandMark } from "@/components/common";
+import { CalendarDays, Crown, HeartHandshake, ExternalLink, Images, LogOut, Package, Scissors, Settings as SettingsIcon, TrendingUp, Users } from "lucide-react";
+import { Avatar, BrandMark } from "@/components/common";
 import Agenda from "@/components/panel/Agenda";
 import Finance from "@/components/panel/Finance";
 import Catalog from "@/components/panel/Catalog";
@@ -10,6 +10,7 @@ import Team from "@/components/panel/Team";
 import Plans from "@/components/panel/Plans";
 import Gallery from "@/components/panel/Gallery";
 import Settings from "@/components/panel/Settings";
+import Relationship from "@/components/panel/Relationship";
 import { apiGet } from "@/lib/api";
 import { useMe } from "@/lib/hooks";
 import { endSession } from "@/lib/session";
@@ -18,13 +19,14 @@ import type { Shop } from "@/lib/types";
 
 const TABS = [
   { k: "agenda", l: "Agenda", icon: CalendarDays, barber: true },
+  { k: "clientes", l: "Clientes", icon: HeartHandshake },
   { k: "financeiro", l: "Financeiro", icon: TrendingUp },
   { k: "servicos", l: "Serviços", icon: Scissors },
   { k: "produtos", l: "Produtos", icon: Package },
   { k: "equipe", l: "Equipe", icon: Users },
   { k: "planos", l: "Planos", icon: Crown },
   { k: "galeria", l: "Galeria", icon: Images, barber: true },
-  { k: "config", l: "Configurações", icon: SettingsIcon },
+  { k: "config", l: "Logo e dados", icon: SettingsIcon },
 ];
 
 export default function Panel() {
@@ -44,6 +46,7 @@ export default function Panel() {
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-5 py-3">
           <BrandMark to="/painel" />
           <span className="hidden h-6 w-px bg-line sm:block" />
+          {shop.data && <Avatar name={shop.data.name} url={shop.data.logo_url} className="hidden size-8 rounded-lg text-xs sm:grid" />}
           <p className="hidden truncate font-heading font-semibold text-gold-soft sm:block" data-testid="panel-shop-name">{shop.data?.name}</p>
           <div className="ml-auto flex items-center gap-3">
             {shop.data && (
@@ -67,6 +70,7 @@ export default function Panel() {
       <main className="mx-auto max-w-7xl animate-fade-up px-5 pt-6" key={tab}>
         <h1 className="mb-5 text-2xl font-bold text-white">{tabs.find((t) => t.k === tab)?.l}</h1>
         {tab === "agenda" && <Agenda me={user} />}
+        {tab === "clientes" && <Relationship shopName={shop.data?.name ?? ""} />}
         {tab === "financeiro" && <Finance />}
         {tab === "servicos" && <Catalog kind="services" />}
         {tab === "produtos" && <Catalog kind="products" />}

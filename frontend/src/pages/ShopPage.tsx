@@ -5,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Avatar, BrandMark, Stars } from "@/components/common";
 import Chatbot from "@/components/Chatbot";
 import { brl, waLink, WEEKDAYS } from "@/lib/format";
+import InstallPrompt from "@/components/InstallPrompt";
 import { useMe, useShop } from "@/lib/hooks";
 
 export default function ShopPage() {
@@ -152,6 +153,7 @@ export default function ShopPage() {
         </main>
       )}
       {data && <Chatbot data={data} userName={me?.name} />}
+      {data && <InstallPrompt name={data.shop.name} />}
     </div>
   );
 }

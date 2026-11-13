@@ -452,3 +452,21 @@ class SuperMetrics(BaseModel):
 class FileOut(BaseModel):
     id: str
     url: str
+
+
+class ClientRank(BaseModel):
+    key: str
+    name: str
+    phone: str = ""
+    visits: int
+    spent: float
+    last_visit: str
+    registered: bool = False
+
+
+class InsightsOut(BaseModel):
+    today: str
+    tomorrow: str
+    reminders: list[Appointment]
+    expiring: list[Subscription]
+    ranking: list[ClientRank]

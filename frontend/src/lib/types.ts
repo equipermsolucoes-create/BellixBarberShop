@@ -95,3 +95,21 @@ export interface SuperMetrics {
   total_clients: number; mrr: number;
 }
 export interface FileOut { id: string; url: string }
+
+export interface ClientRank {
+  key: string;
+  name: string;
+  phone: string;
+  visits: number;
+  spent: number;
+  last_visit: string;
+  registered: boolean;
+}
+
+export interface InsightsOut {
+  today: string;
+  tomorrow: string;
+  reminders: Appointment[];
+  expiring: Subscription[];
+  ranking: ClientRank[];
+}

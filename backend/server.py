@@ -13,7 +13,7 @@ load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
 from lib.db import client, ensure_indexes  # noqa: E402
-from routers import admin, auth, client as client_router, finance, public, superadmin  # noqa: E402
+from routers import admin, auth, client as client_router, finance, insights, public, superadmin  # noqa: E402
 
 
 @asynccontextmanager
@@ -32,10 +32,10 @@ api_router = APIRouter(prefix="/api")
 
 @api_router.get("/")
 async def root():
-    return {"message": "Navalha Club API"}
+    return {"message": "BellixBarberShop API"}
 
 
-for r in (auth.router, public.router, client_router.router, admin.router, finance.router, superadmin.router):
+for r in (auth.router, public.router, client_router.router, admin.router, finance.router, insights.router, superadmin.router):
     api_router.include_router(r)
 
 app.include_router(api_router)
